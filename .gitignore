@@ -60,7 +60,7 @@ coverage.xml
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-mkj_private_apis.db
+*.db
 
 # Flask stuff:
 instance/

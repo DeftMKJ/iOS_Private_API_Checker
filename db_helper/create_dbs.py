@@ -4,7 +4,7 @@ from config import db_names
 
 def create_relate_tables():
     sql = ("create table %s("
-           "id int auto_increment primary key not null, "
+           "id integer primary key AUTOINCREMENT not null, "
            "api_name varchar, "
            "class_name varchar, "
            "type varchar, "
