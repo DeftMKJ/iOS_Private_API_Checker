@@ -9,9 +9,15 @@ import sys
 
 
 def rebuild_sdk_private_apis(sdk_info):
+    print("*"*100)
     print('SET_A')
     print(rebuild_dump_framework_api(sdk_info['sdk_version'], sdk_info['framework_path']))
+    print("*" * 100)
 
+    print("*" * 100)
+    print('SET_B')
+    print(rebuild_framework_header_api(sdk_info['sdk_version'], sdk_info['framework_header_path']))
+    print("*" * 100)
 
 def rebuild_dump_framework_api(sdk_version, framework_folder):
     """
@@ -28,6 +34,19 @@ def rebuild_dump_framework_api(sdk_version, framework_folder):
     # [{'class':'','methods':'','type':''},{},{}]
     return api_dbs.insert_apis_by_sdk(table_name, framework_dump_header_apis)
 
+
+def rebuild_framework_header_api(sdk_version, framework_folder):
+    """
+    public-framework-.h-apis
+    SET_B
+    """
+    table_name = db_names['SET_B']
+    api_dbs.delete_api_by_sdk_version(table_name, sdk_version)
+
+    framework_header_apis = api_utils.framework_header_apis(sdk_version, framework_folder)
+
+    # [{'class':'','methods':'','type':''},{},{}]
+    return api_dbs.insert_apis_by_sdk(table_name, framework_header_apis)
 
 if __name__ == '__main__':
     if not os.path.exists(sqlite3_info['sqlite3']):

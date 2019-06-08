@@ -7,7 +7,7 @@ from api import api_helpers
 
 from itertools import groupby
 
-# SET_A dump framework所有的API，Mach-o文件导出对应头文件
+# SET_A  dump framework所有的API，Mach-o文件导出对应头文件
 def frame_work_dump_apis(version, framework_folder):
     """
     class-dump framework下库生成的所有头文件api
@@ -23,6 +23,19 @@ def frame_work_dump_apis(version, framework_folder):
 
     # 解析文件内容，获得api
     framework_apis = __get_apis_from_headers(version, all_headers)
+
+    return framework_apis
+
+
+# SET_B  framework  头文件所有API
+def framework_header_apis(version, framework_folder):
+    '''
+    获取framework暴露出来的头文件所有apis
+    '''
+    all_headers = __get_headers_from_path(framework_folder)
+
+    framework_apis = __get_apis_from_headers(version, all_headers)
+    # print(framework_apis)
 
     return framework_apis
 

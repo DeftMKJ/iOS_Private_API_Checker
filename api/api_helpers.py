@@ -1,10 +1,15 @@
+#coding=utf-8
 import re
 
 
 def get_apis_from_header_file(filepath):
-    with open(filepath) as f:
+    with open(filepath, 'rb') as f:
+
         text = f.read()
-        apis = extract(text)
+        filter_text = text.decode('utf-8','ignore')
+        # print(filter_text)
+        print('头文件读入，正在处理正则---> ' + filepath)
+        apis = extract(filter_text)
         return apis
     return []
 
@@ -18,7 +23,9 @@ def get_apis_from_header_file(filepath):
 7.匹配c方法 {'type': 'C/C++', 'ctype': ['Coretext']}
 """
 def extract(text):
+    # print(text)
     no_comment_text = remove_comment(text)
+    # print(no_comment_text)
     method = []
     method += get_objc_func(no_comment_text)
     no_class = remove_objc(no_comment_text)
@@ -76,9 +83,9 @@ def get_objc_func(text):
         :param text:
         :return: # 文件扫描结束后方法列表
         """
-
+        # EKCalendarChooser 该字符串是有换行的
         # 有参数方法
-        method = re.compile("([+-] \([ *\w]*\).*?;)\s*")
+        method = re.compile("([+-] \([ *\w]*\).*?;)\s*",re.DOTALL)
         # 去参数 提取方法
         method_args = re.compile("(\w+:)")
 
@@ -103,7 +110,7 @@ def get_objc_func(text):
     # 移除@protocol NSObject, OS_voucher;这种格式，避免后面的interface和protocol获取域不对
     remove_pro = re.compile("@protocol [\w ,]*;", )
     text = re.sub(remove_pro, "", text)
-
+    # print(text)
     # interface 域
     interface = r"""
             @interface\s*
@@ -123,6 +130,7 @@ def get_objc_func(text):
     methods = []
     # finditer查找匹配迭代器 匹配到一组或者多组@interface @end
     classes = [m.group(0) for m in inter_reg.finditer(text) if m.group(0)]
+    # print(classes)
     for c in classes:
         # 搜索到类名
         cm = class_name.search(c)
@@ -131,6 +139,7 @@ def get_objc_func(text):
             cn = cm.groups()[0].replace(" ", "")
             cn = cn.strip()
         # 获取方法
+        # print(c)
         temp = _get_methods(c)
         if temp:
             methods.append({"class": cn, "methods": temp, "type": "interface"})
@@ -225,5 +234,11 @@ def get_c_func(text):
 
 
 if __name__ == '__main__':
-    class_info = get_apis_from_header_file('/Users/mikejing191/PASmartpay/Library/gmssl/openssl/aes.h')
+    # 乱码案例
+    # class_info = get_apis_from_header_file(
+        # '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/PDFKit.framework/Headers/PDFAnnotation.h')
+
+    # 换行案例  EKCalendarChooser
+    class_info = get_apis_from_header_file('/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/EventKitUI.framework/Headers/EKCalendarChooser.h')
+
     print(class_info)
