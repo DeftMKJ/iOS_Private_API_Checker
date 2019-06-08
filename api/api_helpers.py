@@ -84,7 +84,7 @@ def get_objc_func(text):
         :return: # 文件扫描结束后方法列表
         """
         # EKCalendarChooser 该字符串是有换行的
-        # 有参数方法
+        # 有参数方法  re.DOTALL 针对换行的写法
         method = re.compile("([+-] \([ *\w]*\).*?;)\s*",re.DOTALL)
         # 去参数 提取方法
         method_args = re.compile("(\w+:)")
