@@ -7,7 +7,7 @@ def delete_api_by_sdk_version(table_name, version):
     return SqliteHandler().execute_update(sql, params=(version,))
 
 # (:api_name,:api_name,:api_name,:api_name,:api_name,:api_name)
-def insert_apis_by_sdk(table_name, datas):
+def insert_apis(table_name, datas):
     """
     Mysql
     https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-executemany.html

@@ -18,7 +18,7 @@ sdks_configs = [
         # 'framework_header_path': '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/',
         'framework_header_path' : '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks',
         'private_framework_path': '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks',
-        'docset_path': '/Users/mikejing191/Desktop/com.apple.adc.documentation.iOS.docset/Contents/Resources/docSet.dsidx.db',
+        'docset_path': '/Users/mikejing191/Desktop/私有API学习/com.apple.adc.documentation.iOS.docset/Contents/Resources/docSet.dsidx.db',
     },
 ]
 
