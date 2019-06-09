@@ -9,6 +9,8 @@ class_dump_path = utils.get_class_dump_path()
 # dump_cmd = class_dump_path + " -H %s -o %s"
 dump_cmd = "class-dump" + " -H %s -o %s"
 
+
+# class-dump cmd 方法
 def dump_framework(framework_path, out_path):
     """
     使用class-dump来解析framework中的api
@@ -24,6 +26,7 @@ def dump_framework(framework_path, out_path):
         return "class-dump error---> %s"%framework_path
     return ''
 
+# 截取路径方法
 def get_dump_framework_name(framework_path):
     try:
         paths = re.split(r'/', framework_path)

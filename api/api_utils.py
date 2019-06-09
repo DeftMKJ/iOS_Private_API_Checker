@@ -7,8 +7,6 @@ from api import api_helpers
 from db_helper import dsidx_dbs
 from itertools import groupby
 
-from itertools import groupby
-
 
 # SET_A  dump framework所有的API，Mach-o文件导出对应头文件
 def frame_work_dump_apis(version, framework_folder):
@@ -74,9 +72,10 @@ def document_apis(version, dsidx_path):
     return doc_apis
 
 
-# SET_F 私有框架下的API集合
+# SET_E 私有框架下的API集合
 def private_framework_dump_apis(version, framework_folder):
     """
+    SET_E
     private_framework下的API
     """
     framework_folder = __class_dump_frameworks(framework_folder, 'private_headers/')
