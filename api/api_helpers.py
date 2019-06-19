@@ -1,17 +1,17 @@
-#coding=utf-8
+# coding=utf-8
 import re
 
 
 def get_apis_from_header_file(filepath):
     with open(filepath, 'rb') as f:
-
         text = f.read()
-        filter_text = text.decode('utf-8','ignore')
+        filter_text = text.decode('utf-8', 'ignore')
         # print(filter_text)
         print('头文件读入，正在处理正则---> ' + filepath)
         apis = extract(filter_text)
         return apis
     return []
+
 
 """
 1.读入内存，取出头文件文本内容
@@ -22,6 +22,8 @@ def get_apis_from_header_file(filepath):
 6.删除interface和protocol两大块
 7.匹配c方法 {'type': 'C/C++', 'ctype': ['Coretext']}
 """
+
+
 def extract(text):
     # print(text)
     no_comment_text = remove_comment(text)
@@ -85,7 +87,7 @@ def get_objc_func(text):
         """
         # EKCalendarChooser 该字符串是有换行的
         # 有参数方法  re.DOTALL 针对换行的写法
-        method = re.compile("([+-] \([ *\w]*\).*?;)\s*",re.DOTALL)
+        method = re.compile("([+-] \([ *\w]*\).*?;)\s*", re.DOTALL)
         # 去参数 提取方法
         method_args = re.compile("(\w+:)")
 
@@ -199,7 +201,7 @@ def get_c_func(text):
         |
         \s*{[^{}]*\s*}     #  function implement
     """
-    del_regex = re.compile(del_struct_enum, re.VERBOSE|re.MULTILINE|re.DOTALL)
+    del_regex = re.compile(del_struct_enum, re.VERBOSE | re.MULTILINE | re.DOTALL)
     text = re.sub(del_regex, "", text)
     pattern = r"""
         #^(?!\#)(?!\s*typedef\s\w+).*?(\w+)\s*\((?!\w+,)(?![^()*^]*(?:\d+_\d+|NA))
@@ -209,13 +211,13 @@ def get_c_func(text):
         |
         \#define\s*(\w+)\s?\(\s*\w*
     """
-    #regex = re.compile(pattern)
-    regex = re.compile(pattern, re.VERBOSE|re.MULTILINE)
-    #regex = re.compile(pattern, re.VERBOSE|re.MULTILINE|re.DOTALL)
-    #regex = re.compile(pattern, re.MULTILINE)
-    #method = [m.group(1) for m in regex.finditer(text) if m.group(1)]
-    #method = [m.group(0) for m in regex.finditer(text) if m.group(0)]
-    #method = re.findall(regex, text)
+    # regex = re.compile(pattern)
+    regex = re.compile(pattern, re.VERBOSE | re.MULTILINE)
+    # regex = re.compile(pattern, re.VERBOSE|re.MULTILINE|re.DOTALL)
+    # regex = re.compile(pattern, re.MULTILINE)
+    # method = [m.group(1) for m in regex.finditer(text) if m.group(1)]
+    # method = [m.group(0) for m in regex.finditer(text) if m.group(0)]
+    # method = re.findall(regex, text)
     method = []
     for mm in regex.finditer(text):
         m = mm.groups()
@@ -228,17 +230,52 @@ def get_c_func(text):
     s = set(method)
     method = list(s)
     if len(method) > 0:
-        return [{"class":"ctype", "methods":method, "type":"C/C++"}]
+        return [{"class": "ctype", "methods": method, "type": "C/C++"}]
     else:
         return []
 
 
 if __name__ == '__main__':
+    """
+    group介绍
+    pattern = re.compile('(\d+)abc') 
+    result = re.search(pattern, 'dsfdfdgfd123abcsdfdgfgf')
+    result.group()
+    '123abc'
+    result.group(0)
+    '123abc'
+    result.group(1)
+    '123'
+    result.groups()[0]
+    '123' 
+    """
+
+    """
+    findall() 和 finditer()
+    pat = re.compile('(\d+)abc')
+    res = re.findall(pat, 'dssdfs1abcdsds123123abcsfdgfgf') 
+    res.groups()
+    error: 'list' object has no attribute 'groups'
+ 
+    for x in res: 
+		print(x)                                                                       
+    1
+    123123
+
+    res = re.finditer(pat, 'dssdfs1abcdsds123123abcsfdgfgf')
+    for x in res: 
+        print(x) 
+                                                                         
+    <re.Match object; span=(6, 10), match='1abc'>
+    <re.Match object; span=(14, 23), match='123123abc'>
+    """
+
     # 乱码案例
     # class_info = get_apis_from_header_file(
-        # '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/PDFKit.framework/Headers/PDFAnnotation.h')
+    # '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/PDFKit.framework/Headers/PDFAnnotation.h')
 
     # 换行案例  EKCalendarChooser
-    class_info = get_apis_from_header_file('/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/EventKitUI.framework/Headers/EKCalendarChooser.h')
+    class_info = get_apis_from_header_file(
+        '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/EventKitUI.framework/Headers/EKCalendarChooser.h')
 
     print(class_info)
