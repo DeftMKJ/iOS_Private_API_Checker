@@ -7,10 +7,10 @@ from utils import utils
 class_dump_path = utils.get_class_dump_path()
 # 拼接class-dump cmd   ./clss-dump xxxx.framework -o ./Desktop/xxx
 # dump_cmd = class_dump_path + " -H %s -o %s"
-dump_cmd = "class-dump" + " -H %s -o %s"
+dump_cmd = class_dump_path + " -H %s -o %s"
 
 
-# class-dump cmd 方法
+# class-dump -H xxxx.frameworkpath -o xxxx.path  dump framework下的头文件
 def dump_framework(framework_path, out_path):
     """
     使用class-dump来解析framework中的api
@@ -36,10 +36,11 @@ def get_dump_framework_name(framework_path):
         return framework_path
 
 
+# class-dump xxxx.path 是直接dump可执行文件   例如ipa --- payload --- Mach-O 可执行文件
 def dump_app(app_path):
     cmd = class_dump_path + " %s" % app_path
     result = subprocess.check_output(cmd.split())
-    return result
+    return result.decode('utf-8')
 
 
 if __name__ == '__main__':

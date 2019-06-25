@@ -4,7 +4,11 @@ import time
 import os
 import zipfile
 import subprocess
+import re
 from macholib import MachO, mach_o
+from dump import class_dump_utils
+from api import api_helpers
+
 
 
 def unzip_ipa(ipa_path, desc_path):
@@ -71,10 +75,115 @@ def check_app_strings(app_exe):
     return set(output.decode('utf-8').split())
 
 
+def get_dump_macho_result(app_path):
+    """
+     dump app 可执行文件
+    """
+    result = class_dump_utils.dump_app(app_path)
+    return result
+
+
+
+# @interface SPYConnectAccountVModel : SPYTableVModel
+# {
+#     unsigned long long _status;
+#     SPYWalletBalanceEntityList *_balanceList;
+#     NSString *_bankName;
+#     NSString *_bankID;
+#     unsigned long long _availability;
+# }
+# @interface SPYConnectAccountVModel ()
+#
+# @property (nonatomic, strong) SPYWalletBalanceEntityList *balanceList;
+# @property (nonatomic, copy) NSString *bankName;
+# @property (nonatomic, copy) NSString *bankID;
+# @property (nonatomic, assign) SPYAccountAvailability availability;
+#
+# @end
+
+# @interface SPYURLSessionManagerTaskDelegate : NSObject <NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate>
+# {
+#     SPYURLSessionManager *_manager;
+#     NSMutableData *_mutableData;
+#     NSProgress *_uploadProgress;
+#     NSProgress *_downloadProgress;
+#     NSURL *_downloadFileURL;
+#     CDUnknownBlockType _downloadTaskDidFinishDownloading;
+#     CDUnknownBlockType _uploadProgressBlock;
+#     CDUnknownBlockType _downloadProgressBlock;
+#     CDUnknownBlockType _completionHandler;
+# }
+#
+# @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
+# @property(copy, nonatomic) CDUnknownBlockType downloadProgressBlock; // @synthesize downloadProgressBlock=_downloadProgressBlock;
+# @property(copy, nonatomic) CDUnknownBlockType uploadProgressBlock; // @synthesize uploadProgressBlock=_uploadProgressBlock;
+# @property(copy, nonatomic) CDUnknownBlockType downloadTaskDidFinishDownloading; // @synthesize downloadTaskDidFinishDownloading=_downloadTaskDidFinishDownloading;
+# @property(copy, nonatomic) NSURL *downloadFileURL; // @synthesize downloadFileURL=_downloadFileURL;
+def get_app_available(dump_result, pid):
+    """
+    处理dump出来的 property  protocol以及class
+    interface 类名
+    protocol 协议名
+    private m文件私有属性
+    prop    property属性
+    """
+
+    # for x in dump_result.split('\n'):
+    #     print(x)
+
+    interface = re.compile("^@interface (\w*).*")
+    protocol = re.compile("@protocol (\w*)")
+
+    # NSObject < OS_dispatch_group >*_waitGroup; id <SEWebSocketDelegate> _delegate;
+    # NSRunLoop *_runLoop;
+    # unsigned char _currentReadMaskKey[4];
+    # @interface SEWebSocket : NSObject <NSStreamDelegate> 案例
+    private = re.compile("^\s*[\w <>]* [*]?(\w*)[\[\]\d]*;")  # m文件私有的变量
+    prop = re.compile("@property\([\w, ]*\) (?:\w+ )*[*]?(\w+); // @synthesize \w*(?:=([\w]*))?;")  # 属性
+
+    res = set()
+    lines = dump_result.split("\n")
+    wait_end = False
+    for line in lines:
+        l = line.strip()
+        if l.startswith("}"):
+            wait_end = False
+            continue
+        if wait_end:
+            r = private.search(l)
+            if r:
+                res.add(r.groups()[0])
+            continue
+        r = interface.search(l)
+        if r:
+            res.add(r.groups()[0])
+            wait_end = True
+            continue
+        r = protocol.search(l)
+        if r:
+            res.add(r.groups()[0])
+            wait_end = True
+            continue
+        r = prop.search(l)
+        if r:
+            m = r.groups()
+            res.add(m[0])
+            res.add("set" + m[0].title() + ":")
+            # print ("set" + m[0].title() + ":")
+            if m[1] != None:
+                # res.add("V"+m[1])
+                res.add(m[1])
+    return res
 
 
 
 
+def get_app_methods(dump_result, pid):
+    """
+    获取App中的方法
+    """
+    methods = api_helpers.extract(dump_result)
+    return methods
 
 
 

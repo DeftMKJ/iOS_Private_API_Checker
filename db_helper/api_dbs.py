@@ -37,3 +37,45 @@ def api_is_exist_in_table(table_name, api_obj):
     sql = "SELECT * FROM %s WHERE api_name = ? and class_name = ? and source_sdk = ?;" % table_name
     parameters = (api_obj['api_name'], api_obj['class_name'], api_obj['source_sdk'])
     return SqliteHandler().execute_select_one(sql, params=parameters)
+
+
+# 从SET_D 私有API库里面查找api_name 而且framework不属于参数，而且不在白名单里面
+def get_private_api_list(framework=None):
+    framework_str = _get_sql_in_strings(framework) # in frameworks
+    private_db_name = db_names["SET_D"]
+    white_list_containers = _get_white_lists_results()
+    # 有frame过滤条件s
+    if framework_str:
+        sql = "select * from %s group by api_name having source_framework in "%(private_db_name) + framework_str + " and api_name not in " + white_list_containers + ";"
+        params = ()
+    else:
+        sql = "select * from %s group by api_name having api_name not in "%(private_db_name) + white_list_containers + ";"
+        params = ()
+    private_apis = SqliteHandler().execute_select(sql, params)
+    print(sql)
+    return private_apis
+
+
+# 白名单里面的api_name in sql语句
+def _get_white_lists_results():
+    sql = "select api_name from %s group by api_name" % (db_names["SET_G"])
+    params = ()
+    white_lists_result = SqliteHandler().execute_select(sql, params)
+    result_set = set()
+    if white_lists_result and len(white_lists_result) > 0:
+        for api_name in white_lists_result:
+            result_set.add(api_name['api_name'])
+    return _get_sql_in_strings(result_set)
+
+
+# set()数据 {'','',''} 转换成 ('','','') sql用的语句
+def _get_sql_in_strings(container_set):
+    framework_str = '()'
+    if container_set and len(container_set) > 0:
+        framework_str = '('
+        for f in container_set:
+            framework_str = framework_str + "'" + f + "', "
+
+        framework_str = framework_str[0:-2]
+        framework_str = framework_str + ')'
+    return framework_str

@@ -218,3 +218,46 @@ def deduplication_api_list(apis):
 # 07 / 04 / 2012
 #     [{'address': '5148 N CLARK', 'date': '07/04/2012'},
 #      {'address': '1039 W GRANVILLE', 'date': '07/04/2012'}]
+
+
+def intersection_leave_list_and_private_apis(leave, apis):
+    """
+    交叉需要检测的和私有API集合
+    leave ["","",""]
+    apis [{},{},{}]
+    """
+    new_apis = []
+    for api in apis:
+        api_hash = api["api_name"]
+        if api_hash in leave:
+            new_apis.append(api)
+    return new_apis
+
+
+
+def _apis_2_dict(apis):
+    apis_dict = {}
+    if apis:
+        for api in apis:
+            api_hash = api['api_name'] + '/' + api['class_name']
+            apis_dict[api_hash] = api
+
+    return apis_dict
+
+def intersection_api(apis_1, apis_2):
+    '''
+    return intersection of apis_1 and apis_2
+        in apis_1, also in apis_2
+    '''
+    not_in_apis = []
+    apis = []
+    apis_1_dict = _apis_2_dict(apis_1)
+
+    for api in apis_2:
+        api_hash = api['api_name'] + '/' + api['class_name']
+        if apis_1_dict.get(api_hash, None):
+            apis.append(api)
+        else:
+            not_in_apis.append(api)
+
+    return apis, not_in_apis

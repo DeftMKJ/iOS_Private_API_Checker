@@ -39,7 +39,7 @@ class SqliteHandler():
     def execute_select(self, sql, params = ()):
         try:
             self.cur.execute(sql, params)
-            result =  self.cur.fetchall()
+            result = self.cur.fetchall()
             return result
         except Exception as e:
             print('error: %s' % e)

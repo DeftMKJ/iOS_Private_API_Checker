@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a655079a-71a0-4e87-952d-66073829dbcf" name="Default Changelist" comment="1.document API导出&#10;2.private framework导出">
-      <change afterPath="$PROJECT_DIR$/api/app_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/check_private_apis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dump/otool_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api_helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/app_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check_private_apis.py" beforeDir="false" afterPath="$PROJECT_DIR$/check_private_apis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_helper/api_dbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_helper/api_dbs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_helper/sqlite3_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_helper/sqlite3_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dump/class_dump_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/dump/class_dump_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/test1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,14 +17,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/iOS_Private_API_Checker$check_private_apis.coverage" NAME="check_private_apis Coverage Results" MODIFIED="1560844953137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/iOS_Private_API_Checker$check_private_apis.coverage" NAME="check_private_apis Coverage Results" MODIFIED="1561453620595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/iOS_Private_API$build_apis_db.coverage" NAME="build_apis_db Coverage Results" MODIFIED="1559746428364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/iOS_Private_API_Checker$build_apis_db.coverage" NAME="build_apis_db Coverage Results" MODIFIED="1560086078659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/private_apis_app$api_dbs.coverage" NAME="api_dbs Coverage Results" MODIFIED="1559730378552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db_helper" />
-    <SUITE FILE_PATH="coverage/iOS_Private_API_Checker$otool_utils.coverage" NAME="otool_utils Coverage Results" MODIFIED="1560844216333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dump" />
+    <SUITE FILE_PATH="coverage/iOS_Private_API_Checker$otool_utils.coverage" NAME="otool_utils Coverage Results" MODIFIED="1561344425365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dump" />
     <SUITE FILE_PATH="coverage/private_apis_app$test.coverage" NAME="test Coverage Results" MODIFIED="1559630352912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/iOS_Private_API_Checker$check_private.coverage" NAME="check_private Coverage Results" MODIFIED="1560224933767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/iOS_Private_API_Checker$app_utils.coverage" NAME="app_utils Coverage Results" MODIFIED="1560841930066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/iOS_Private_API_Checker$class_dump_utils.coverage" NAME="class_dump_utils Coverage Results" MODIFIED="1560925090310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dump" />
     <SUITE FILE_PATH="coverage/iOS_Private_API_Checker$api_helpers.coverage" NAME="api_helpers Coverage Results" MODIFIED="1559830196538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/iOS_Private_API_Checker$test1.coverage" NAME="test1 Coverage Results" MODIFIED="1560823039310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/private_apis_app$class_dump_utils.coverage" NAME="class_dump_utils Coverage Results" MODIFIED="1559727686663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dump" />
@@ -58,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build_apis_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="102" selection-start-line="102" selection-end-line="103" selection-end-column="20" />
+            <state relative-caret-position="212">
+              <caret line="101" column="42" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -70,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/app_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="-295">
+              <caret line="121" column="4" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="4" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -82,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db_helper/api_dbs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+            <state relative-caret-position="212">
+              <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -92,10 +93,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/api_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="246" column="4" selection-start-line="246" selection-start-column="4" selection-end-line="246" selection-end-column="4" />
+              <folding>
+                <element signature="e#23#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db_helper/sqlite3_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+            <state relative-caret-position="262">
+              <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -104,28 +126,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/272557682/_sqlite3.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="273" column="19" selection-start-line="273" selection-start-column="8" selection-end-line="273" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/api_helpers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="203" column="68" selection-start-line="203" selection-start-column="68" selection-end-line="203" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="122" column="20" selection-start-line="122" selection-start-column="20" selection-end-line="122" selection-end-column="20" />
+            <state relative-caret-position="203">
+              <caret line="232" column="15" selection-start-line="232" selection-start-column="15" selection-end-line="232" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -133,8 +137,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/check_private_apis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="519">
+              <caret line="59" column="17" lean-forward="true" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -143,22 +147,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dump/otool_utils.py">
+        <entry file="file://$PROJECT_DIR$/db_helper/create_dbs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="56" column="18" lean-forward="true" selection-start-line="55" selection-start-column="19" selection-end-line="56" selection-end-column="18" />
+            <state relative-caret-position="225">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
-                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#0#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dump/class_dump_utils.py">
+        <entry file="file://$PROJECT_DIR$/dump/otool_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+            <state relative-caret-position="176">
+              <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -177,36 +181,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dump_framework</find>
-      <find>template</find>
-      <find>MTKTextureLoader</find>
-      <find>@end</find>
-      <find>@interface</find>
-      <find>JSM</find>
-      <find>get_apis_from_header_file</find>
-      <find>initwithDe</find>
-      <find>extract</find>
-      <find>rebuild_sdk_private_apis</find>
-      <find>access</find>
-      <find>accessibility.frame</find>
-      <find>init</find>
-      <find>SET_E</find>
-      <find>rebuild_private_dump_framework_api</find>
-      <find>SET_F</find>
-      <find>with</find>
-      <find>__get_headers_from_path</find>
-      <find>table_name_F</find>
-      <find>import subprocess</find>
-      <find>-mmacholib</find>
-      <find>spy</find>
-      <find>groups</find>
-      <find>finditer</find>
-      <find>1</find>
-      <find>insert</find>
+      <find>_requestSerializer</find>
+      <find>\s*[\w &lt;&gt;]* [*]?(\w*)[\[\]\d]*;</find>
+      <find>_field1</find>
+      <find>@protocol (\w*)</find>
+      <find>@property\([\w, ]*\) (?:\w+ )*[*]?(\w+); // @synthesize \w*(?:=([\w]*))?;</find>
+      <find>Appdescription4Enus</find>
+      <find>setDownloadfileurl</find>
+      <find>Downloadfileurl</find>
+      <find>wx_errcode</find>
       <find>R</find>
-      <find>check_output</find>
-      <find>group</find>
-      <find>get_dump_framework_name</find>
+      <find>IPv4Enabled</find>
+      <find>WXInvoiceAuthInsertResp</find>
+      <find>_logDelegate</find>
+      <find>NSString</find>
+      <find>contentStringAttributes</find>
+      <find>setContentStringAttributes</find>
+      <find>ContentStringAttributes</find>
+      <find>Generated</find>
+      <find>Generated by class-dump 3.5 (64 bit)</find>
+      <find>SPYAppDelegate</find>
+      <find>extract</find>
+      <find>ctype</find>
+      <find>Photos.framework</find>
+      <find>public</find>
+      <find>UIKit.framework</find>
+      <find>Foundation.framework</find>
+      <find>execute_select</find>
+      <find>get_publick_framework_dump_apis</find>
+      <find>&quot;V&quot;</find>
+      <find>strings</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -217,28 +221,28 @@
       <list>
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/utils/utils.py" />
-        <option value="$PROJECT_DIR$/db_helper/sqlite3_utils.py" />
         <option value="$PROJECT_DIR$/db_helper/create_dbs.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/db_helper/dsidx_dbs.py" />
-        <option value="$PROJECT_DIR$/db_helper/api_dbs.py" />
         <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/api/api_utils.py" />
         <option value="$PROJECT_DIR$/build_apis_db.py" />
         <option value="$PROJECT_DIR$/check_private.py" />
         <option value="$PROJECT_DIR$/test1.py" />
         <option value="$PROJECT_DIR$/api/api_helpers.py" />
-        <option value="$PROJECT_DIR$/api/app_utils.py" />
         <option value="$PROJECT_DIR$/dump/otool_utils.py" />
-        <option value="$PROJECT_DIR$/check_private_apis.py" />
         <option value="$PROJECT_DIR$/dump/class_dump_utils.py" />
+        <option value="$PROJECT_DIR$/api/app_utils.py" />
+        <option value="$PROJECT_DIR$/db_helper/sqlite3_utils.py" />
+        <option value="$PROJECT_DIR$/db_helper/api_dbs.py" />
+        <option value="$PROJECT_DIR$/api/api_utils.py" />
+        <option value="$PROJECT_DIR$/check_private_apis.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="803" />
+    <option name="height" value="814" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -276,6 +280,11 @@
               <item name="iOS_Private_API_Checker" type="b2602c69:ProjectViewProjectNode" />
               <item name="iOS_Private_API_Checker" type="462c0819:PsiDirectoryNode" />
               <item name="tmp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iOS_Private_API_Checker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iOS_Private_API_Checker" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -331,28 +340,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="check_private" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="private_apis_app" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/check_private.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="check_private_apis" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="private_apis_app" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -367,6 +354,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/check_private_apis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="class_dump_utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="private_apis_app" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dump" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dump/class_dump_utils.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -446,9 +455,9 @@
       <list>
         <item itemvalue="Python.check_private_apis" />
         <item itemvalue="Python.otool_utils" />
+        <item itemvalue="Python.class_dump_utils" />
         <item itemvalue="Python.app_utils" />
         <item itemvalue="Python.test1" />
-        <item itemvalue="Python.check_private" />
       </list>
     </recent_temporary>
   </component>
@@ -470,7 +479,8 @@
       <workItem from="1559708937440" duration="15627000" />
       <workItem from="1559744800391" duration="1470000" />
       <workItem from="1559786475378" duration="62994000" />
-      <workItem from="1560595625981" duration="19390000" />
+      <workItem from="1560595625981" duration="24953000" />
+      <workItem from="1560997377838" duration="28217000" />
     </task>
     <task id="LOCAL-00001" summary="1.read() decode('utf-8','ignore')&#10;2.framework header头文件导出&#10;3.iOS framework路径">
       <created>1559957864690</created>
@@ -490,18 +500,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147964000" />
+    <option name="totallyTimeSpent" value="181744000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="803" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="814" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27825466" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28183118" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32850942" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.46656978" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.48497853" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3982808" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -561,16 +571,6 @@
     <entry file="file://$PROJECT_DIR$/private_apis_app/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -619,23 +619,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/check_private.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/check_private.py" />
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -647,16 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db_helper/create_dbs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -703,16 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/api_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
-          <folding>
-            <element signature="e#23#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
@@ -720,84 +684,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/api_helpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="203" column="68" selection-start-line="203" selection-start-column="68" selection-end-line="203" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/272557682/_sqlite3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="4095">
           <caret line="273" column="19" selection-start-line="273" selection-start-column="8" selection-end-line="273" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_helper/sqlite3_utils.py">
+    <entry file="file://$PROJECT_DIR$/utils/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+        <state relative-caret-position="285">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_helper/api_dbs.py">
+    <entry file="file://$PROJECT_DIR$/dump/class_dump_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+        <state relative-caret-position="212">
+          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
           <folding>
-            <element signature="e#0#49#0" expanded="true" />
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build_apis_db.py">
+    <entry file="file://$PROJECT_DIR$/api/api_helpers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="102" selection-start-line="102" selection-end-line="103" selection-end-column="20" />
+        <state relative-caret-position="203">
+          <caret line="232" column="15" selection-start-line="232" selection-start-column="15" selection-end-line="232" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_helper/create_dbs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dump/otool_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="56" column="18" lean-forward="true" selection-start-line="55" selection-start-column="19" selection-end-line="56" selection-end-column="18" />
+        <state relative-caret-position="176">
+          <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dump/class_dump_utils.py">
+    <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+        <state relative-caret-position="360">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_helper/sqlite3_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build_apis_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="101" column="42" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/app_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="-295">
+          <caret line="121" column="4" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="4" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db_helper/api_dbs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/api_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="246" column="4" selection-start-line="246" selection-start-column="4" selection-end-line="246" selection-end-column="4" />
+          <folding>
+            <element signature="e#23#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/check_private_apis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="519">
+          <caret line="59" column="17" lean-forward="true" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
