@@ -49,7 +49,7 @@ def document_apis(version, dsidx_path):
     apisets = dsidx_dbs.get_dsidx_apis(dsidx_path)
     # 过滤
     for api in apisets:
-        print('正在处理dosset %s' % api)
+        # print('正在处理dosset %s' % api)
         Z_PK = api['Z_PK']
         ZDECLAREDIN = api['ZDECLAREDIN']
         # TODO 这里很多是空的
@@ -97,6 +97,11 @@ def __class_dump_frameworks(folder, prefix):
             # destination  /tmp/pub-headers/xxx.framework/Headers/
             out_path = os.path.join(os.path.join(header_folder_path + framework), 'Headers')
             class_dump_utils.dump_framework(framework_path, out_path)
+            deep_path = os.path.join(framework_path, 'Frameworks')
+
+            # 处理dump的时候多个嵌套的问题
+            if os.path.isdir(deep_path):
+                __class_dump_frameworks(deep_path,prefix)
     return header_folder_path
 
 
@@ -109,6 +114,11 @@ def __get_headers_from_path(framework_folder):
             header_path = os.path.join(os.path.join(framework_folder, framework), 'Headers')
             if os.path.exists(header_path):
                 all_headers_path += iterate_dir(framework, "", header_path)
+            deep_path = os.path.join(os.path.join(framework_folder, framework), 'Frameworks')
+
+            # 处理Xcode包里面头文件嵌套的问题
+            if os.path.isdir(deep_path):
+                all_headers_path += __get_headers_from_path(deep_path)
     # [('framework'),('headerfle'),('filepath')]
     return all_headers_path
 
@@ -136,7 +146,7 @@ def __get_apis_from_headers(sdk_version, all_headers):
         apis = api_helpers.get_apis_from_header_file(header[2])
 
         for api in apis:
-            class_name = api["class"] if api["class"] != "ctype" else header[1]
+            class_name = api["class"] if api["class"] != "ctype" else header[1][0:-2]
             method_list = api["methods"]
             m_type = api["type"]
             for m in method_list:

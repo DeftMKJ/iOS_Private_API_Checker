@@ -9,14 +9,15 @@ import sys
 
 
 def rebuild_sdk_private_apis(sdk_info):
+
     print("*"*100)
     print('SET_A')
-    print(rebuild_dump_framework_api(sdk_info['sdk_version'], sdk_info['framework_path']))
+    print(rebuild_dump_framework_api(sdk_info['sdk_version'], sdk_info['framework_path'])) # 139610
     print("*" * 100)
 
     print("*" * 100)
     print('SET_B')
-    print(rebuild_framework_header_api(sdk_info['sdk_version'], sdk_info['framework_header_path']))
+    print(rebuild_framework_header_api(sdk_info['sdk_version'], sdk_info['framework_header_path'])) # 18107
     print("*" * 100)
 
     print("*" * 100)
@@ -32,6 +33,7 @@ def rebuild_sdk_private_apis(sdk_info):
     print("*" * 100)
     print('SET_D')
     print(rebuild_private_apis(sdk_info['sdk_version']))
+    print(len(api_dbs.get_finale_private_apis_count()))
     print("*" * 100)
 
 def rebuild_dump_framework_api(sdk_version, framework_folder):
@@ -105,7 +107,7 @@ def rebuild_private_apis(sdk_version):
     private_count = 0
     __count = 0
     for api in framework_dump_apis:
-        print("正在从公有API库中提取私有API-->%s"%api)
+        # print("正在从公有API库中提取私有API-->%s"%api)
         # 方法以 '_'下划线开始直接定义为私有API
         if api['api_name'] and api['api_name'][0:1] == "_":
             __count += 1
@@ -130,14 +132,18 @@ def rebuild_private_apis(sdk_version):
     print("属于私有%s"%private_count)
     print("属于私有下划线%s"%__count)
     print("*" * 100)
-    # 属于公有11217
-    # 属于私有98566
-    # 属于私有下划线28292
+    # 所有公有framework下的API计算如下:
+    # 属于公有11707
+    # 属于私有102266
+    # 属于私有下划线28751
+    # 去重前 - --公有库内的私有API length：131017
+
 
     print("去重前---公有库内的私有API length：%s" % (len(framework_dump_private_apis)))
     print('start group by....')
 
     framework_dump_private_apis = api_utils.deduplication_api_list(framework_dump_private_apis)
+
     print("去重后----公有库内的私有API length：%s" % (len(framework_dump_private_apis)))
 
 
@@ -145,12 +151,13 @@ def rebuild_private_apis(sdk_version):
     print("公有库下的私有API插入最终集合---%s---%s" % (table_name_D, public_private_resultA))
 
     public_private_resultB = api_dbs.insert_apis(table_name_F, framework_dump_private_apis)
+    print('集合F')
     print("公有库下的私有API插入独立集合F集合---%s---%s" % (table_name_F, public_private_resultB))
 
     # 合并 SET_D
     private_framework_apis = api_dbs.get_private_framework_dump_apis(sdk_version)
     public_private_resultC = api_dbs.insert_apis(table_name_D, private_framework_apis)
-    print("私有库API集合取出插入合并集合SET_D---%s---%s" % (table_name_D, public_private_resultC))
+    print("私有库API集合取出插入最终集合---%s---%s" % (table_name_D, public_private_resultC))
 
     return True
 

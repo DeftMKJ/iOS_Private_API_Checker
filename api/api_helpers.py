@@ -7,7 +7,7 @@ def get_apis_from_header_file(filepath):
         text = f.read()
         filter_text = text.decode('utf-8', 'ignore')
         # print(filter_text)
-        print('头文件读入，正在处理正则---> ' + filepath)
+        # print('头文件读入，正在处理正则---> ' + filepath)
         apis = extract(filter_text)
         return apis
     return []
@@ -275,7 +275,9 @@ if __name__ == '__main__':
     # '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/PDFKit.framework/Headers/PDFAnnotation.h')
 
     # 换行案例  EKCalendarChooser
-    class_info = get_apis_from_header_file(
-        '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/EventKitUI.framework/Headers/EKCalendarChooser.h')
+    # class_info = get_apis_from_header_file(
+    #     '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/EventKitUI.framework/Headers/EKCalendarChooser.h')
+
+    class_info = get_apis_from_header_file('/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ARKit.framework/Headers/ARAnchor.h')
 
     print(class_info)

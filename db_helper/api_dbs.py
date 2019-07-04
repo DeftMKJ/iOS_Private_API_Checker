@@ -38,6 +38,11 @@ def api_is_exist_in_table(table_name, api_obj):
     parameters = (api_obj['api_name'], api_obj['class_name'], api_obj['source_sdk'])
     return SqliteHandler().execute_select_one(sql, params=parameters)
 
+def get_finale_private_apis_count():
+    sql = "SELECT * FROM %s;" % db_names['SET_D']
+    para = ()
+    return SqliteHandler().execute_select(sql, params=para)
+
 
 # 从SET_D 私有API库里面查找api_name 而且framework不属于参数，而且不在白名单里面
 def get_private_api_list(framework=None):

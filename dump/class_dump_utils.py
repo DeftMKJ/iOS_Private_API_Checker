@@ -16,8 +16,10 @@ def dump_framework(framework_path, out_path):
     使用class-dump来解析framework中的api
     """
     cmd = dump_cmd % (framework_path, out_path)
-    print('~'*100)
-    print(get_dump_framework_name(framework_path))
+    # print('~'*100)
+    # print(get_dump_framework_name(framework_path))
+    # print(framework_path)
+
     result_code = subprocess.call(cmd.split())
     # 0代表执行成功
     if result_code != 0:

@@ -32,7 +32,6 @@ def check_private_api(app, pid):
 
     print('Strings:--->')
     print(strings)
-
     # 获取App内私有库和公有库  cmd: otool -L
     private, public = otool_utils.otool_app(app)
 
@@ -43,8 +42,8 @@ def check_private_api(app, pid):
 
     # class-dump ipa mach-o
     dump_macho_result = app_utils.get_dump_macho_result(app)
-    print('dump_macho_result_strings:--->')
-    print(dump_macho_result)
+    # print('dump_macho_result_strings:--->')
+    # print(dump_macho_result)
     app_availables = app_utils.get_app_available(dump_macho_result, pid) # 提取App自定义的方法 不需要检查 TODO 再仔细看下输出
     print('app_availables:--->')
     print(app_availables)
@@ -75,17 +74,24 @@ def check_private_api(app, pid):
 
     print("*"*50)
     print("App可见Strings : %s" % len(strings))
-    print("自定义的app_availables : %s" % len(app_availables))
-    print("剩下的String -  app_availables : %s"%len(leave))
+    print("App协议，变量属性 : %s" % len(app_availables))
+    print("剩下的字符串--->  String -  App协议，变量属性  : %s"%len(leave))
     print('App方法名app_methods: %s'%len(app_apis))
     print('App用的Public对应的private apis length :%s'%len(api_set))
     print("*"*50)
-    # Leave app_availables: 11640
-    # app_methods: 4088
-    # private length: 14938
+
+    # App可见Strings: 14634
+    # 自定义的app_availables: 3954
+    # 剩下的String - app_availables: 11640
+    # App方法名app_methods: 4088
+    # App用的Public对应的private
+    # apis
+    # length: 15125
 
     # app中leave（所有API除开自定义的）和用到的Public库对应的私有API集合进行交叉，获得App中私有API关键字数据 [{},{},{}]
     intersection_api = api_utils.intersection_leave_list_and_private_apis(leave, api_set)
+    print('交集--->%s'%len(intersection_api))
+    print(intersection_api)
 
     methods_in_app, method_not_in = api_utils.intersection_api(app_apis, intersection_api)  # app中的私有方法
 
