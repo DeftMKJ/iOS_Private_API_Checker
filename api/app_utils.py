@@ -8,6 +8,7 @@ import re
 from macholib import MachO, mach_o
 from dump import class_dump_utils
 from api import api_helpers
+from hashlib import md5
 
 
 
@@ -58,7 +59,7 @@ def check_architetures(app):
         arch = mach_o.CPU_TYPE_NAMES.get(header.header.cputype, header.header.cputype)
         subarch = mach_o.get_cpu_subtype(header.header.cputype, header.header.cpusubtype)
 
-        archs.append('_'.join((arch, subarch, sz)))
+        archs.append('_'.join((arch, sz)))
 
     return archs
 
@@ -188,7 +189,13 @@ def get_app_methods(dump_result, pid):
 
 
 
-
+def file_md5(ipa_path):
+    m = md5()
+    with open(ipa_path, 'rb') as f:
+        text = f.read()
+        m.update(text)
+        return m.hexdigest()
+    return ''
 
 
 # 获取随机值

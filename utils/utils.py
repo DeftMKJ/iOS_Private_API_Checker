@@ -28,3 +28,8 @@ def get_class_dump_path(use_what = 'class-dump'):
     else:
         return class_dump_z_path.get(get_system(), os.path.join(os.getcwd() + 'class-dump'))
 
+
+# 获取随机值
+def get_digest_str():
+    datetime_str = time.strftime('%Y-%m-%d-%H-%M-%S',time.localtime())
+    return datetime_str + '-' + str(datetime.datetime.now().microsecond) + '-' + str(random.randint(0, 1000))
