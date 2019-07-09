@@ -38,7 +38,7 @@ virtualenv
 5.. venv/bin/activate  # 启动虚拟环境
 
 
-Pycharm
+Pycharm<br/>
 1.下载项目下来,用Pycharm打开，然后点击Pycharm --- Preference --- Project --- Project Interpreter配置虚拟环境<br/>
 2.点击右边的齿轮，选择add，Virtualenv Environment --- New Environment 默认确定即可<br/>
 3.打开Pycharm下面的Terminal，进入虚拟环境，安装依赖包<br/>
