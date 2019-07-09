@@ -1,5 +1,6 @@
-## 网上有个2.7 Python的资料，顺便熟练下Python，用Python3.7 + Django重写了一下，慢慢完善
-![网易游戏](https://github.com/NetEaseGame/iOS-private-api-checker)
+## 前言
+网上有个2.7 Python的资料，顺便熟练下Python，用Python3.7 + Django重写了一下，把Bug都修复了一下，慢慢完善
+[网易游戏](https://github.com/NetEaseGame/iOS-private-api-checker)
 
 
 # iOS_Private_API_Checker
