@@ -35,14 +35,21 @@ XlsxWriter==1.1.8
 
 ### 虚拟环境配置
 virtualenv
+
 1.进入项目文件夹，用virtualenv创建虚拟环境，没有该工具用pip install virtualenv / pip3 install virtualenv 安装
+
 2.virtualenv venv
+
 3.virtualenv -p /usr/local/bin/python3 venv # 创建3的环境
+
 4.pip install -r requirements.txt  # 虚拟环境导入依赖
+
 5.. venv/bin/activate  # 启动虚拟环境
 
 
+
 Pycharm<br/>
+
 1.下载项目下来,用Pycharm打开，然后点击Pycharm --- Preference --- Project --- Project Interpreter配置虚拟环境<br/>
 
 2.点击右边的齿轮，选择add，Virtualenv Environment --- New Environment 默认确定即可<br/>
@@ -57,13 +64,17 @@ Pycharm<br/>
 
 
 ### 运行
+
 #### 方式1
+
 如果你会自己编译入库，就在`config.py`文件中找到`sdks_configs`，配置对应的路径地址，稍后博客有介绍如何配置，如果你想用线程的，就直接去云盘下载我编译好的iOS 12的api，但是docset是9.2.5的，直接把下载好的db文件拖进项目根目录即可，然后到根目录`check_private_apis.py`文件,修改main里面的check_multi(path),这里的path填写你的ipa所在文件夹,注意是文件夹，脚本会批量扫描目录下所有ipa并输出Excel，可以在项目tmp目录中找到生成的Excel文件
 
 #### 方式2
+
 刚才上面配置好的Django的虚拟环境，安装好了依赖，依然在项目根目录下，执行 `python private_apis_app/manage.py runserver` 启动本地服务，输入`http://127.0.0.1:8000/check/`,拖入你的ipa即可
 
 ### 小工具
+
 [脚本检查ipa各种参数信息](https://github.com/DeftMKJ/iOS_Check_IPA_Details) Python3实现的，里面也有个Python2的
 
 
@@ -82,6 +93,7 @@ Pycharm<br/>
 
 
 以下是构建所用到的表名
+
 集合A --- `framework_dump_apis` framework可执行文件dump后的api集合
 
 集合B --- `framework_header_apis` framework暴露的头文件api集合
@@ -103,11 +115,11 @@ Pycharm<br/>
 
 2、mach-o文件中的依赖除了系统，是不是还需要dump第三方其他的库进行扫描`@xpath`
 
-3. 私有api在公开的Framework及私有的PrivateFramework都有。
+3、 私有api在公开的Framework及私有的PrivateFramework都有。
 
-4. 请暂时暂mac上运行，linux上暂时没有找到合适的、代替otool的工具
+4、请暂时暂mac上运行，linux上暂时没有找到合适的、代替otool的工具
 
-5.9.2.5的iOS系统对应的Xcode 8是有docset的，后面的Xcode都有新的文件格式了，博客有介绍，需要自己分析，但是有点乱
+5、9.2.5的iOS系统对应的Xcode 8是有docset的，后面的Xcode都有新的文件格式了，博客有介绍，需要自己分析，但是有点乱
 
 TODO: 慢慢完善，写个博客记录下
 
