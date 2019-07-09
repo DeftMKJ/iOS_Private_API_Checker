@@ -34,7 +34,7 @@ XlsxWriter==1.1.8
 
 
 ### 虚拟环境配置
-virtualenv
+**virtualenv方式**
 
 1.进入项目文件夹，用virtualenv创建虚拟环境，没有该工具用pip install virtualenv / pip3 install virtualenv 安装
 
@@ -48,7 +48,7 @@ virtualenv
 
 
 
-Pycharm<br/>
+**Pycharm方式**<br/>
 
 1.下载项目下来,用Pycharm打开，然后点击Pycharm --- Preference --- Project --- Project Interpreter配置虚拟环境<br/>
 
