@@ -12,7 +12,7 @@
 3.Django 2.2.3
 
 ### Complete
-1.从ipa中提取一些基本信息，例如app名字，sdk版本，包名等，可以辅助QA日常工作。
+1.从ipa中提取一些基本信息，例如app名字，sdk版本，包名等，可以辅助QA日常工作。<br/>
 2.ipa架构检查，可以看出是否支持64位架构，可以辅助AppStore提审
 3.ipa使用私有api情况，可以辅助AppStore提审
 4.mkj_private_apis.db已经是编译好的各种api集合，云盘地址（稍后提供），下载下来放进根目录，不然你自己要跑半个多小时才能全部入库
@@ -39,12 +39,12 @@ virtualenv
 
 
 Pycharm
-1.下载项目下来,用Pycharm打开，然后点击Pycharm --- Preference --- Project --- Project Interpreter配置虚拟环境
-2.点击右边的齿轮，选择add，Virtualenv Environment --- New Environment 默认确定即可
-3.打开Pycharm下面的Terminal，进入虚拟环境，安装依赖包
-4.生成 `pip freeze > requirements.txt`  安装 `pip install -r requirements.txt`
-5.然后`build_apis_db.py`文件可以单独跑，就会在项目主目录下生成一个`tmp`文件夹生成对应`framework`dump之后的头文件
-6.最后自动会正则这些头文件，然后写入`mkj_private_apis.db`对应的表中进行后续匹配
+1.下载项目下来,用Pycharm打开，然后点击Pycharm --- Preference --- Project --- Project Interpreter配置虚拟环境<br/>
+2.点击右边的齿轮，选择add，Virtualenv Environment --- New Environment 默认确定即可<br/>
+3.打开Pycharm下面的Terminal，进入虚拟环境，安装依赖包<br/>
+4.生成 `pip freeze > requirements.txt`  安装 `pip install -r requirements.txt`<br/>
+5.然后`build_apis_db.py`文件可以单独跑，就会在项目主目录下生成一个`tmp`文件夹生成对应`framework`dump之后的头文件<br/>
+6.最后自动会正则这些头文件，然后写入`mkj_private_apis.db`对应的表中进行后续匹配<br/>
 
 ### 运行
 #### 方式1
@@ -54,7 +54,7 @@ Pycharm
 刚才上面配置好的Django的虚拟环境，安装好了依赖，依然在项目根目录下，执行 `python private_apis_app/manage.py runserver` 启动本地服务，输入`http://127.0.0.1:8000/check/`,拖入你的ipa即可
 
 ### 小工具
-![脚本检查ipa各种参数信息](https://github.com/DeftMKJ/iOS_Check_IPA_Details) Python3实现的，里面也有个Python2的
+[脚本检查ipa各种参数信息](https://github.com/DeftMKJ/iOS_Check_IPA_Details) Python3实现的，里面也有个Python2的
 
 
 ### 步骤原理分析
