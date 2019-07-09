@@ -2,10 +2,9 @@ import os, shutil
 from api import app_utils, api_utils
 from dump import otool_utils
 from db_helper import api_dbs
-from  private_apis_app.utils import checkipa
 from utils import report_utils
 from dump import codesign_utils
-from private_apis_app.utils import checkipa
+from utils import checkipa
 from pprint import pprint
 
 # ipa路径 pid唯一标识 解压ipa包到项目tmp目录下 拿到可执行文件
@@ -36,7 +35,7 @@ def check_private_api(app, pid):
     strings = app_utils.check_app_strings(app)
 
     print('Strings:--->')
-    print(strings)
+    # print(strings)
     # 获取App内私有库和公有库  cmd: otool -L
     private, public = otool_utils.otool_app(app)
 
@@ -51,7 +50,7 @@ def check_private_api(app, pid):
     # print(dump_macho_result)
     app_availables = app_utils.get_app_available(dump_macho_result, pid) # 提取App自定义的方法 不需要检查 TODO 再仔细看下输出
     print('app_availables:--->')
-    print(app_availables)
+    # print(app_availables)
 
     leave = strings - app_availables # 去除一些App自定义的方法，剩余App中的一些字符串
 
@@ -59,7 +58,7 @@ def check_private_api(app, pid):
     app_methods = app_utils.get_app_methods(dump_macho_result, pid) # class-dump出来的字符串格式中提取方法
     # [{"class": "ctype", "methods": method, "type": "C/C++"}]
     print("app_methods")
-    print(app_methods)
+    # print(app_methods)
 
     app_apis = []
     for m in app_methods:
@@ -110,9 +109,9 @@ def check_private_api(app, pid):
 
 
 
-def check_one_app():
+def check_one_app(ipa_path):
     # ipa文件所在位置
-    ipa_path = "/Users/mikejing191/Desktop/SmartPay_Example-IPA/SmartPay_Example-v1.4.1-b20190703142838.ipa"
+    ipa_path = ipa_path
 
     # 打开文件
     privete_in_app = open("tmp/private_in_app.txt", "w")
@@ -231,16 +230,20 @@ def batch_check(ipa_folder, excel_path):
     return excel_path
 
 
+def check_multi(ipa_folder):
+    cwd = os.getcwd()
+    excel_path = os.path.join(cwd, 'tmp/' + app_utils.get_digest_str() + '.xlsx')
+    print('Excel 导出路径：%s' % excel_path)
+    ipa_folder = ipa_folder
+    batch_check(ipa_folder, excel_path)
+
 
 
 
 
 if __name__ == '__main__':
-    # 单个指定ipa扫描
-    # check_one_app()
+    # 1.单个指定ipa扫描 不输出Excel 自己测试用，终端看日志
+    # check_one_app("/Users/mikejing191/Desktop/SmartPay_Example-IPA/SmartPay_Example-v1.4.1-b20190703142838.ipa")
 
-    cwd = os.getcwd()
-    excel_path = os.path.join(cwd, 'tmp/' + app_utils.get_digest_str() + '.xlsx')
-    print('Excel 导出路径：%s' % excel_path)
-    ipa_folder = '/Users/mikejing191/Desktop/SmartPay_Example-IPA/'
-    batch_check(ipa_folder, excel_path)
+    # 2.替换自己ipa文件夹，扫描.ipa后缀文件进行检测，批量或单个输出Excel在tmp目录下 替换成自己的ipa目录即可
+    check_multi('/Users/mikejing191/Desktop/ipa_folder')

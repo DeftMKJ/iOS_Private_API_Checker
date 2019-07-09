@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Hello Mikejing Start Checing IPA</h1>
+
+<body>
+    <h1>呵呵</h1>
+    <form action="{% url 'dumpapp:upload_tmp' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file">
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
+
+</body>
+</html>

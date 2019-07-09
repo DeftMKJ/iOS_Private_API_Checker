@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iOS私有api检查</title>
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="shortcut icon" href="/static/res/favicon.ico">
+    <!--<link rel="stylesheet" href="https://fonts.useso.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.useso.com/icon?family=Material+Icons">-->
+    <link rel="stylesheet" href="/static/res/css/material.min.css">
+    <link rel="stylesheet" href="/static/res/css/dropzone.min.css">
+    <link rel="stylesheet" href="/static/res/css/styles.css">
+    <style type="text/css">
+        #ipa_file {
+            border: 2px solid rgb(66,158,158);
+            width: 100%;
+        }
+        #overview section {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+            <a href="#overview" class="mdl-layout__tab is-active">Home</a>
+            <a href="#features" class="mdl-layout__tab">FAQ</a>
+        </div>
+    </header>
+    <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <form action="#" class="dropzone dz-clickable" id="ipa_file" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="dz-message" >Drop files here or click to upload.<br>
+                        <span class="note">(文件拖放到这里或者点击选择ipa文件 <strong>检查iOS私有api使用情况</strong>)</span>
+                    </div>
+                </form>
+            </section>
+            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <div class="mdl-card mdl-cell mdl-cell--12-col">
+                    <ul class="toc">
+                        <a href="#">App Name: <span id="app_name"></span></a>
+                        <a href="#">App Version: <span id="version"></span></a>
+                        <a href="#">Bundle identifier: <span id="bundle_identifier"></span></a>
+                        <a href="#">Target os version: <span id="target_os_version"></span></a>
+                        <a href="#">Minimum os version: <span id="minimum_os_version"></span></a>
+                        <a href="#">App Architectures: <span id="app_arcs"></span></a>
+                        <a href="#">Profile Type: <span id="profile_type"></span></a>
+                        <a href="#">Expiration Date: <span id="expiration"></span></a>
+                    </ul>
+                </div>
+            </section>
+            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="api_in_app">
+                <div class="mdl-card mdl-cell mdl-cell--12-col">
+                    <div id="api_append_div" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                        <h4 class="mdl-cell mdl-cell--12-col">Private API in APP</h4>
+
+                    </div>
+                </div>
+            </section>
+            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="framework_in_app">
+                <div class="mdl-card mdl-cell mdl-cell--12-col">
+                    <div id="framework_append_div" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                        <h4 class="mdl-cell mdl-cell--12-col">Private Framework in APP</h4>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="features">
+            <section class="section--center mdl-grid mdl-grid--no-spacing">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <h4>Tips</h4>
+                    参考了网上的资料，用Python3 + Django重写了一下，学习了很多Python知识点
+                    <h4>FAQ</h4>
+                    私有API检查的原因在于：苹果在app提审的时候，会检查app使用私有api的情况，对于使用了私有api的app，不予通过，这个工具的目地就是在提审之前检查一下，提高通过率。
+                    <ul class="toc">
+                        <h4>Contents</h4>
+                        <a href="#func">一、功能</a>
+                        <a href="#how">二、如何使用</a>
+                        <a href="#what">三、检查原理</a>
+                        <a href="#note">四、Note</a>
+                    </ul>
+
+                    <h5 id="func">一、功能</h5>
+                    目前功能主要有三：
+                    <ul>
+                        <li>从ipa中提取一些基本信息，例如app名字，sdk版本，包名等，可以辅助QA日常工作。</li>
+                        <li>ipa架构检查，可以看出是否支持64位架构，可以辅助AppStore提审。</li>
+                        <li>ipa使用私有api情况，可以辅助AppStore提审。</li>
+                    </ul>
+
+
+                    <h5 id="how">二、如何使用</h5>
+                    有两种运行方式：
+                    <ul>
+                        <li>下载项目找到根目录check_private_apis.py文件，修改main里面的check_multi(path),这里的path填写你的ipa所在文件夹，脚本会批量扫描目录下所有ipa并输出Exce</li>
+                        <li>
+                            第二种用Django搭建的Web来运行，下载下来启动Python3的虚拟环境<br/>
+                            进入项目文件夹，用virtualenv创建虚拟环境，没有该工具用pip install virtualenv / pip3 install virtualenv 安装<br/>
+                            virtualenv venv<br/>
+                            virtualenv -p /usr/local/bin/python3 venv # 创建3的环境<br/>
+                            pip install -r requirements.txt  # 虚拟环境导入依赖<br/>
+                            . venv/bin/activate  # 启动虚拟环境<br/>
+                            继续在根目录下启动Django本地服务<br/>
+                            python private_apis_app/manage.py runserver # 由于os.getcwd的问题，千万别切进去到Django app目录下，就在最外层就好<br/>
+                            之后把ipa项目文件拖进去即可<br/>
+
+                        </li>
+                    </ul>
+
+                    <h5 id="what">三、检查原理</h5>
+                    <ul>
+
+                        <li>1、通过`class-dump`导出`Frameworks`以及`PrivateFrameworks`中可执行文件的头文件，通过脚本提取方法分别为`SET_A`集合和`SET_E`集合</li>
+                        <li>2、通过`Framework`中的Header文件夹下暴露的头文件进行提取，通过脚本提取方法设置为`SET_B`集合</li>
+                        <li>3、找到Xcode内置的`com.apple.adc.documentation.iOS.docset`数据库(iOS 9.3之后修改了内置数据结构，后面介绍再介绍)，多表查询出对应的API，设置`SET_C`集合</li>
+                        <li>4、那么`SET_F =（SET_A - SET_B - SET_C）`就是公有Framework下对应的私有API，设置为集合`SET_F`</li>
+                        <li>5、原本B集合中的API就是私有库里面的，因此都不能被使用，则最终的私有API集合为
+                            `SET_D = SET_F + SET_E`</li>
+                        <li>6、使用`class-dump`反编译ipa包中的app文件，然后和`SET_D`做交集即可获取到。</li>
+                        <br>
+                        <br>
+                        <li>以下是构建所用到的表名</li>
+                        <li>集合A --- `framework_dump_apis` framework可执行文件dump后的api集合</li>
+                        <li>集合B --- `framework_header_apis` framework暴露的头文件api集合</li>
+                        <li>集合C --- `document_apis` 内置文档docset数据集合</li>
+                        <li>集合D --- `all_private_apis` 最终私有apis集合</li>
+                        <li>集合E --- `private_framework_dump_apis` 私有framework可执行文件dump后的集合</li>
+                        <li>集合F --- `framework_private_apis` 集合A - 集合B - 集合 C剩下的apis</li>
+                        <li>集合G --- `white_list_apis` 白名单</li>
+                    </ul>
+
+                    <h5 id="note">四、Note</h5>
+                    <p>1、class-dump有些文件会报错，需要查看下</p>
+                    <p>2、mach-o文件中的依赖除了系统，是不是还需要dump第三方其他的库进行扫描`@xpath`</p>
+                    <p>3. 私有api在公开的Framework及私有的PrivateFramework都有。</p>
+                    <p>4. 请暂时暂mac上运行，linux上暂时没有找到合适的、代替otool的工具</p>
+                    <p>5.9.2.5的iOS系统对应的Xcode 8是有docset的，后面的Xcode都有新的文件格式了，博客有介绍，需要自己分析，但是有点乱</p>
+                    <p>TODO: 慢慢完善，出个博客记录下</p>
+
+
+                </div>
+            </section>
+        </div>
+        <footer class="mdl-mega-footer">
+            <div class="mdl-mega-footer--bottom-section">
+                <div class="mdl-logo">
+                    Mikejing For Leaning
+                </div>
+            </div>
+        </footer>
+    </main>
+</div>
+<script type="text/javascript" src="/static/res/js/jquery.min.js"></script>
+<script src="/static/res/js/material.min.js"></script>
+<script src="/static/res/js/dropzone.min.js"></script>
+<script src="/static/res/js/ios_private.js"></script>
+</body>
+</html>

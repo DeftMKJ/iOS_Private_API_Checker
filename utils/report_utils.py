@@ -290,7 +290,8 @@ def _pre_process(private_results):
     results = []
     cnt = 1
     for result in private_results:
-        result['sheet_name'] = str(cnt) + '.' + result.get('name', '无APP名字')
+        # 注意，这里xlswriter有空格需要处理掉，不然超链接会有问题
+        result['sheet_name'] = str(cnt) + '.' + '_'.join(result.get('name', '无APP名字').split(' '))
         results.append(result)
         cnt = cnt + 1
     return results

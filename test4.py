@@ -12,7 +12,7 @@ def get_apis_from_header_file(filepath):
 
 if __name__ == '__main__':
     print("宓珂")
-    headers = '/Users/mikejing191/Desktop/iOS_Private_API_Checker/tmp/public_headers'
+    # headers = '/Users/mikejing191/Desktop/iOS_Private_API_Checker/tmp/public_headers'
 
     # for f in os.listdir(headers):
     #     for x in os.listdir(os.path.join(os.path.join(headers,f), 'Headers')):
