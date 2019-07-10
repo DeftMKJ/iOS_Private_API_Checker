@@ -51,10 +51,10 @@ def get_private_api_list(framework=None):
     white_list_containers = _get_white_lists_results()
     # 有frame过滤条件s
     if framework_str:
-        sql = "select * from %s group by api_name having source_framework in "%(private_db_name) + framework_str + " and api_name not in " + white_list_containers + ";"
+        sql = "select * from %s group by api_name, class_name having source_framework in "%(private_db_name) + framework_str + " and api_name not in " + white_list_containers + ";"
         params = ()
     else:
-        sql = "select * from %s group by api_name having api_name not in "%(private_db_name) + white_list_containers + ";"
+        sql = "select * from %s group by api_name, class_name having api_name not in "%(private_db_name) + white_list_containers + ";"
         params = ()
     private_apis = SqliteHandler().execute_select(sql, params)
     print(sql)
@@ -63,7 +63,7 @@ def get_private_api_list(framework=None):
 
 # 白名单里面的api_name in sql语句
 def _get_white_lists_results():
-    sql = "select api_name from %s group by api_name" % (db_names["SET_G"])
+    sql = "select api_name from %s group by api_name, class_name" % (db_names["SET_G"])
     params = ()
     white_lists_result = SqliteHandler().execute_select(sql, params)
     result_set = set()

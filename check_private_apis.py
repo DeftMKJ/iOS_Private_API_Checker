@@ -246,4 +246,4 @@ if __name__ == '__main__':
     # check_one_app("/Users/mikejing191/Desktop/SmartPay_Example-IPA/SmartPay_Example-v1.4.1-b20190703142838.ipa")
 
     # 2.替换自己ipa文件夹，扫描.ipa后缀文件进行检测，批量或单个输出Excel在tmp目录下 替换成自己的ipa目录即可
-    check_multi('/Users/mikejing191/Desktop/ipa_folder')
+    check_multi('/Users/mikejing191/Desktop/SmartPay_Example-IPA/ipa_folder')
