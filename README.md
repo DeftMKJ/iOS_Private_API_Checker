@@ -18,7 +18,7 @@
 
 3.ipa使用私有api情况，可以辅助AppStore提审
 
-4.mkj_private_apis.db已经是编译好的各种api集合，云盘地址（稍后提供），下载下来放进根目录，不然你自己要跑半个多小时才能全部入库
+4.`mkj_private_apis.db`已经是编译好的各种api集合，云盘地址（稍后提供），下载下来放进根目录，不然你自己要跑半个多小时才能全部入库
 
 
 ### 依赖
@@ -36,15 +36,15 @@ XlsxWriter==1.1.8
 ### 虚拟环境配置
 **virtualenv方式**
 
-1.进入项目文件夹，用virtualenv创建虚拟环境，没有该工具用pip install virtualenv / pip3 install virtualenv 安装
+1.进入项目文件夹，用`virtualenv`创建虚拟环境，没有该工具用`pip install virtualenv` / `pip3 install virtualenv` 安装
 
-2.virtualenv venv
+2.`virtualenv venv`
 
-3.virtualenv -p /usr/local/bin/python3 venv # 创建3的环境
+3.`virtualenv -p /usr/local/bin/python3 venv` # 创建3的环境
 
-4.pip install -r requirements.txt  # 虚拟环境导入依赖
+4.`pip install -r requirements.txt`  # 虚拟环境导入依赖
 
-5.. venv/bin/activate  # 启动虚拟环境
+5.`. venv/bin/activate`  # 启动虚拟环境
 
 
 
