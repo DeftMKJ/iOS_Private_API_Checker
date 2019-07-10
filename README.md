@@ -56,7 +56,7 @@ XlsxWriter==1.1.8
 
 3.打开Pycharm下面的Terminal，进入虚拟环境，安装依赖包<br/>
 
-4.生成 `pip freeze > requirements.txt`  安装 `pip install -r requirements.txt`<br/>
+4.安装 `pip install -r requirements.txt`<br/>
 
 5.然后`build_apis_db.py`文件可以单独跑，就会在项目主目录下生成一个`tmp`文件夹生成对应`framework`dump之后的头文件<br/>
 
@@ -71,7 +71,7 @@ XlsxWriter==1.1.8
 
 #### 方式2
 
-刚才上面配置好的Django的虚拟环境，安装好了依赖，依然在项目根目录下，执行 `python private_apis_app/manage.py runserver` 启动本地服务，输入`http://127.0.0.1:8000/check/`,拖入你的ipa即可
+刚才上面配置好的Django的虚拟环境，安装好了依赖，依然在项目根目录下，执行`. venv/bin/activate`启动Python3虚拟环境，执行 `python private_apis_app/manage.py runserver` 启动本地服务，输入`http://127.0.0.1:8000/check/`,拖入你的ipa即可
 
 ### 小工具
 
