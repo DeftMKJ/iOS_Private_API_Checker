@@ -1,3 +1,7 @@
+
+## 博客
+[博客记录](https://blog.csdn.net/Deft_MKJing/article/details/94550353)
+
 ## 前言
 网上有个2.7 Python的资料，顺便熟练下Python，用Python3.7 + Django重写了一下，把Bug都修复了一下，慢慢完善<br/>
 [网易游戏](https://github.com/NetEaseGame/iOS-private-api-checker)
