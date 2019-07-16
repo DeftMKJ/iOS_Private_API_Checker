@@ -22,7 +22,7 @@
 
 3.ipa使用私有api情况，可以辅助AppStore提审
 
-4.`mkj_private_apis.db`已经是编译好的各种api集合，云盘地址（稍后提供），下载下来放进根目录，不然你自己要跑半个多小时才能全部入库
+4.`mkj_private_apis.db`已经是编译好的各种api集合，云盘地址（链接: https://pan.baidu.com/s/15x3kExmwL5RrPJQIYB6LXw 提取码: sdbe），下载下来放进根目录，不然你自己要跑半个多小时才能全部入库
 
 
 ### 依赖
@@ -119,12 +119,9 @@ XlsxWriter==1.1.8
 
 2、mach-o文件中的依赖除了系统，是不是还需要dump第三方其他的库进行扫描`@xpath`
 
-3、 私有api在公开的Framework及私有的PrivateFramework都有。
+3、私有api在公开的Framework及私有的PrivateFramework都有。
 
 4、9.2.5的iOS系统对应的Xcode 8是有docset的，后面的Xcode都有新的文件格式了，博客有介绍，需要自己分析，但是有点乱
-
-TODO: 慢慢完善，写个博客记录下
-
 
 
 
