@@ -24,6 +24,17 @@
 
 4.`mkj_private_apis.db`已经是编译好的各种api集合，云盘地址（链接: https://pan.baidu.com/s/1bsMEp-Xs4LVr7TB3cfcfew 提取码: zkcu 复制这段内容后打开百度网盘手机App，操作更方便哦），下载下来放进根目录，不然你自己要跑半个多小时才能全部入库
 
+脚本里面的抓取的docset可以从官方这里下载，也可以参考上面博客文章
+```c
+# 各版本 iOS docSet 的元信息
+https://developer.apple.com/library/downloads/docset-index.dvtdownloadableindex
+# iOS 8.1 docSet
+https://devimages-cdn.apple.com/docsets/20141020/031-07735-A.dmg
+# iOS 9.3.5 docSet
+https://devimages-cdn.apple.com/docsets/20160321/031-52212-A.dmg
+
+```
+
 
 ### 依赖
 ```ruby
