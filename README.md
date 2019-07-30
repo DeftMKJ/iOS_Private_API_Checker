@@ -22,7 +22,7 @@
 
 3.ipa使用私有api情况，可以辅助AppStore提审
 
-4.`mkj_private_apis.db`已经是编译好的各种api集合，云盘地址（链接: https://pan.baidu.com/s/15x3kExmwL5RrPJQIYB6LXw 提取码: sdbe），下载下来放进根目录，不然你自己要跑半个多小时才能全部入库
+4.`mkj_private_apis.db`已经是编译好的各种api集合，云盘地址（链接: https://pan.baidu.com/s/1bsMEp-Xs4LVr7TB3cfcfew 提取码: zkcu 复制这段内容后打开百度网盘手机App，操作更方便哦），下载下来放进根目录，不然你自己要跑半个多小时才能全部入库
 
 
 ### 依赖
