@@ -126,13 +126,11 @@ XlsxWriter==1.1.8
 
 
 #### TODO
-1、class-dump有些文件会报错，需要查看下
+1、class-dump有些文件会报错，不能dump纯c或者swift的
 
-2、mach-o文件中的依赖除了系统，是不是还需要dump第三方其他的库进行扫描`@xpath`
+2、私有api在公开的Framework及私有的PrivateFramework都有。
 
-3、私有api在公开的Framework及私有的PrivateFramework都有。
-
-4、9.2.5的iOS系统对应的Xcode 8是有docset的，后面的Xcode都有新的文件格式了，博客有介绍，需要自己分析，但是有点乱
+3、9.2.5的iOS系统对应的Xcode 8是有docset的，后面的Xcode都有新的文件格式了，博客有介绍，需要自己分析或者你和Dash作者一样联系下Apple的工程师帮助理解文档
 
 
 
