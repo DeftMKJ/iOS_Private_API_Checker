@@ -2,6 +2,6 @@ altgraph==0.16.1
 Django==2.2.3
 macholib==1.11
 pytz==2019.1
-sqlparse==0.3.0
+sqlparse==0.4.4
 virtualenv==16.6.0
 XlsxWriter==1.1.8
